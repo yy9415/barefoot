@@ -79,4 +79,4 @@ try:
 finally:
     os.remove(tmp)
 
-assert buf.startswith('SUCCESS\n')
+assert buf.startswith('SUCCESS\n'), repr(buf[:16])
