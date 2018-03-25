@@ -80,4 +80,4 @@ try:
 finally:
     os.remove(tmp)
 
-assert output.startswith('SUCESS\n'), repr(output[:16])
+assert output.startswith('SUCCESS\n'), repr(output[:16])
