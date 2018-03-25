@@ -71,7 +71,8 @@ try:
         s.shutdown(socket.SHUT_WR)
         buf = s.recv(4096)
         while buf:
-            output += buf
+            if len(output) < 16:
+                output += buf
             sys.stdout.write(buf)
             buf = s.recv(4096)
     finally:
@@ -79,4 +80,4 @@ try:
 finally:
     os.remove(tmp)
 
-assert output.startswith('SUCCESS\n'), repr(buf[:16])
+assert output.startswith('SUCESS\n'), repr(output[:16])
