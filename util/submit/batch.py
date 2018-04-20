@@ -31,7 +31,7 @@ parser.add_option("--port", dest="port", help="Port of matcher.")
 parser.add_option("--file", dest="file", help="JSON file with sample data.")
 parser.add_option("--id", dest="id", help="Object id.")
 parser.add_option("--zone", dest="zone", default="+0000", help="Time zone in '(+/-)HHMM' format.")
-parser.add_option("--format", dest="format", default="geojson", help="Output format: geojson (default) | slimjson | debug")
+parser.add_option("--format", dest="format", default="slimjson", help="Output format: geojson (default) | slimjson | debug")
 
 (options, args) = parser.parse_args()
 

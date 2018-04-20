@@ -28,7 +28,7 @@ public class RoadPoint extends com.bmwcarit.barefoot.topology.Point<Road> {
     private static final SpatialOperator spatial = new Geography();
     private final Point geometry;
     private final double azimuth;
-    private final Road road;
+    // private final Road road;
 
     /**
      * Creates a {@link RoadPoint}.
@@ -41,7 +41,7 @@ public class RoadPoint extends com.bmwcarit.barefoot.topology.Point<Road> {
         super(road, fraction);
         this.geometry = spatial.interpolate(road.geometry(), fraction);
         this.azimuth = spatial.azimuth(road.geometry(), fraction);
-        this.road = road;
+        // this.road = road;
     }
 
     /**
@@ -66,9 +66,6 @@ public class RoadPoint extends com.bmwcarit.barefoot.topology.Point<Road> {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = edge().toJSON();
         json.put("frac", fraction());
-        // json.put("source", this.road.source())
-        // json.put("target", this.road.target())
-        // json.put("type", this.road.type())
         return json;
     }
 

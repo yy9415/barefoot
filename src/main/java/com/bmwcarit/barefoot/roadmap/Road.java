@@ -147,6 +147,9 @@ public class Road extends AbstractEdge<Road> {
         JSONObject json = new JSONObject();
         json.put("road", base().id());
         json.put("heading", heading());
+        json.put("source", source());
+        json.put("target", target());
+        json.put("type", type());
         return json;
     }
 

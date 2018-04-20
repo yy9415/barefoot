@@ -64,11 +64,9 @@ public class MatcherServer extends AbstractServer {
          */
         public List<MatcherSample> format(String input) {
             List<MatcherSample> samples = new LinkedList<>();
-
             try {
                 Object jsoninput = new JSONTokener(input).nextValue();
                 JSONArray jsonsamples = null;
-
                 if (jsoninput instanceof JSONObject) {
                     jsonsamples = ((JSONObject) jsoninput).getJSONArray("request");
                 } else {
