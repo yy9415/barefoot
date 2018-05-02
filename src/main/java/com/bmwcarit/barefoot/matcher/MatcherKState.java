@@ -144,13 +144,15 @@ public class MatcherKState extends KState<MatcherCandidate, MatcherTransition, M
     public JSONArray toSlimJSON() throws JSONException {
         JSONArray json = new JSONArray();
         if (this.sequence() != null) {
-            for (MatcherCandidate candidate : this.sequence()) {
+            for (int i = 0; i < this.sequence().size(); ++i) {
+                MatcherCandidate candidate = this.sequence().get(i);
                 JSONObject jsoncandidate = candidate.point().toJSON();
                 if (candidate.transition() != null) {
                     jsoncandidate.put("route",
                             GeometryEngine.geometryToWkt(candidate.transition().route().geometry(),
                                     WktExportFlags.wktExportLineString));
                 }
+                jsoncandidate.put("time", this.samples().get(i).time() / 1000);
                 json.put(jsoncandidate);
             }
         }
